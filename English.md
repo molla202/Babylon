@@ -16,7 +16,7 @@
 | CPU |	4 |
 | RAM	| 8 GB |
 | Storage	| 250 GB SSD |
-### Update ve lib. setup
+### Update and lib. setup
 ```
 sudo apt update
 sudo apt install -y curl git jq lz4 build-essential unzip
