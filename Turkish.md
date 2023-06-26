@@ -138,7 +138,7 @@ babylond keys delete cüzdan-adınız
 ### Validator Oluşturma ( moniker ve cüzdan adınızı değiştiriniz)
 ```
 babylond tx checkpointing create-validator \
---amount=1000000ubbn \
+--amount=10000000ubbn \
 --pubkey=$(babylond tendermint show-validator) \
 --moniker="moniker-yazınız" \
 --identity= \
