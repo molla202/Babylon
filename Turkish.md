@@ -142,6 +142,10 @@ babylond create-bls-key $(babylond keys show wallet -a)
 ```
 sudo systemctl restart babylond
 ```
+### Senkron kontrol edelim
+```
+babylond status 2>&1 | jq .SyncInfo
+```
 ### Validator Oluşturma ( moniker ve cüzdan adınızı değiştiriniz)
 ```
 babylond tx checkpointing create-validator \
