@@ -57,12 +57,9 @@ babylond config keyring-backend test
 babylond config chain-id bbn-test-2
 babylond init "$NODE_MONIKER" --chain-id bbn-test-2
 
-curl -L https://github.com/babylonchain/networks/raw/main/bbn-test-2/genesis.tar.bz2 > genesis.tar.bz2
-tar -xjf genesis.tar.bz2
-rm genesis.tar.bz2
-mv genesis.json ~/.babylond/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/Core-Node-Team/Testnet-TR/main/Babylon/genesis.json > $HOME/.babylond/config/genesis.json
 
-curl -s https://snapshots1-testnet.nodejumper.io/babylon-testnet/addrbook.json > $HOME/.babylond/config/addrbook.json
+curl -Ls https://raw.githubusercontent.com/Core-Node-Team/Testnet-TR/main/Babylon/addrbook.json > $HOME/.babylond/config/addrbook.json
 
 SEEDS="8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b@seed0.testnet.babylonchain.io:26656,4b1f8a774220ba1073a4e9f4881de218b8a49c99@seed1.testnet.babylonchain.io:26656"
 PEERS=""
@@ -107,11 +104,6 @@ LimitNOFILE=10000
 [Install]
 WantedBy=multi-user.target
 EOF
-
-babylond tendermint unsafe-reset-all --home $HOME/.babylond --keep-addr-book
-
-SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/babylon-testnet/info.json | jq -r .fileName)
-curl "https://snapshots1-testnet.nodejumper.io/babylon-testnet/${SNAP_NAME}" | lz4 -dc - | tar -xf - -C "$HOME/.babylond"
 
 sudo systemctl daemon-reload
 sudo systemctl enable babylond
