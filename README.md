@@ -41,7 +41,6 @@ source $HOME/.bash_profile
 ### Moniker isminizi giriniz (PORT 311 İSTERSENİZ DEĞİŞTİRİNİZ)
 
 ```
-#!/bin/bash
 
 NODE_MONIKER="moniker-adınızı-yazınız"
 BABYLON_PORT="311"
