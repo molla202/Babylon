@@ -41,13 +41,13 @@ source $HOME/.bash_profile
 ### Moniker isminizi giriniz (PORT 311 İSTERSENİZ DEĞİŞTİRİNİZ)
 
 ```
-
 echo "export WALLET="wallet-adınız"" >> $HOME/.bash_profile
 echo "export MONIKER="moniker-adınız"" >> $HOME/.bash_profile
 echo "export BABYLON_CHAIN_ID="bbn-test-2"" >> $HOME/.bash_profile
 echo "export BABYLON_PORT="311"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
-
+```
+```
 cd || return
 rm -rf babylon
 git clone https://github.com/babylonchain/babylon
@@ -58,7 +58,7 @@ babylond version # v0.7.2
 
 babylond config keyring-backend test
 babylond config chain-id bbn-test-2
-babylond init "$NODE_MONIKER" --chain-id bbn-test-2
+babylond init "$MONIKER" --chain-id bbn-test-2
 
 curl -Ls https://raw.githubusercontent.com/Core-Node-Team/Testnet-TR/main/Babylon/genesis.json > $HOME/.babylond/config/genesis.json
 
