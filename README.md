@@ -38,13 +38,13 @@ source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
 
-### Moniker isminizi giriniz (PORT 11 İSTERSENİZ DEĞİŞTİRİNİZ)
+### Moniker isminizi giriniz (PORT 311 İSTERSENİZ DEĞİŞTİRİNİZ)
 
 ```
 #!/bin/bash
 
 NODE_MONIKER="moniker-adınızı-yazınız"
-BABYLON_PORT="11"
+BABYLON_PORT="311"
 
 cd || return
 rm -rf babylon
