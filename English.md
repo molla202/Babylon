@@ -114,3 +114,47 @@ sudo systemctl start babylond
 
 sudo journalctl -u babylond -f --no-hostname -o cat
 ```
+
+### wallet
+```
+babylond keys add $WALLET
+```
+### wallet import
+```
+babylond keys add $WALLET --recover
+```
+
+## ⚡⚡⚡ BLS key create ⚡⚡⚡
+```
+babylond create-bls-key $(babylond keys show $WALLET -a)
+```
+### And reset node 
+```
+sudo systemctl restart babylond
+```
+### Senkron false oke
+```
+babylond status 2>&1 | jq .SyncInfo
+```
+### Validator create ( moniker and wallet name change)
+```
+babylond tx checkpointing create-validator \
+--amount=10000000ubbn \
+--pubkey=$(babylond tendermint show-validator) \
+--moniker="moniker-name" \
+--identity= \
+--details="Mustafa Kemal ATATÜRK" \
+--chain-id=bbn-test-2 \
+--commission-rate=0.10 \
+--commission-max-rate=0.20 \
+--commission-max-change-rate=0.01 \
+--min-self-delegation=1 \
+--from=$WALLET \
+--gas-prices=0.1ubbn \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y
+```
+
+
+
