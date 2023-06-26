@@ -137,7 +137,7 @@ babylond keys delete cüzdan-adınız
 
 ### Validator Oluşturma ( moniker ve cüzdan adınızı değiştiriniz)
 ```
-babylond tx staking create-validator \
+babylond tx checkpointing create-validator \
 --amount=1000000ubbn \
 --pubkey=$(babylond tendermint show-validator) \
 --moniker="moniker-yazınız" \
@@ -156,7 +156,7 @@ babylond tx staking create-validator \
 ```
 ### Validator Bilgileri Değiştirme Editleme
 ```
-babylond tx staking edit-validator \
+babylond tx checkpointing edit-validator \
 --new-moniker="molla202" \
 --identity= \
 --details="Mustafa Kemal ATATÜRK" \
@@ -174,7 +174,7 @@ babylond tx slashing unjail --from cüzdan-adınız --chain-id bbn-test-2 --gas-
 ```
 ### Validator Bilgileri
 ```
-babylond q staking validator $(babylond keys show cüzdan-adınız --bech val -a) 
+babylond q epoching validator $(babylond keys show cüzdan-adınız --bech val -a) 
 ```
 ### Ödülleri Talep Etme
 ```
@@ -186,19 +186,19 @@ babylond tx distribution withdraw-rewards $(babylond keys show cüzdan-adınız 
 ```
 ### Delege Etme Kendine
 ```
-babylond tx staking delegate $(babylond keys show cüzdan-adınız --bech val -a) 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching delegate $(babylond keys show cüzdan-adınız --bech val -a) 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Delege Etme Başkasına
 ```
-babylond tx staking delegate valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching delegate valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Redelegate (delege edilenden alıp baskasına delege etme)
 ```
-babylond tx staking redelegate valoper-adresini-yazınız valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching redelegate valoper-adresini-yazınız valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Delegeyi Geri Çekme
 ```
-babylond tx staking unbond valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching unbond valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Başkasına Coin Gönderme
 ```
