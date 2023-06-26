@@ -134,7 +134,14 @@ babylond q bank balances $(babylond keys show cüzdan-adınız -a)
 ```
 babylond keys delete cüzdan-adınız
 ```
-
+## ⚡⚡⚡ BLS key oluşturun ⚡⚡⚡
+```
+babylond create-bls-key $(babylond keys show wallet -a)
+```
+### Ardından restleyip validator işlemine geçebilirsiniz ( oluşturduğunuz cüzdan discordan faucet alınız)
+```
+sudo systemctl restart babylond
+```
 ### Validator Oluşturma ( moniker ve cüzdan adınızı değiştiriniz)
 ```
 babylond tx checkpointing create-validator \
