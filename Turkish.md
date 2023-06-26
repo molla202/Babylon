@@ -210,5 +210,12 @@ babylond tx gov vote 1 yes --from cüzdan-adınız --chain-id bbn-test-2 --gas-p
 ```
 ## Node Silme
 ```
-sudo systemctl stop babylond && sudo systemctl disable babylond && sudo rm /etc/systemd/system/babylond.service && sudo systemctl daemon-reload && rm -rf $HOME/.babylond && rm -rf $HOME/babylon && sudo rm -rf $(which babylond) 
+sudo systemctl stop babylond && \
+sudo systemctl disable babylond && \
+rm /etc/systemd/system/babylond.service && \
+sudo systemctl daemon-reload && \
+cd $HOME && \
+rm -rf .babylond && \
+rm -rf babylon && \
+rm -rf $(which babylond)
 ```
