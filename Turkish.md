@@ -114,4 +114,101 @@ sudo systemctl start babylond
 
 sudo journalctl -u babylond -f --no-hostname -o cat
 ```
+### Cüzdan Oluşturma
+```
+babylond keys add cüzdan-adınız
+```
+### Cüzdan import
+```
+babylond keys add cüzdan-adınız --recover
+```
+### Cüzdan listeleme
+```
+babylond keys list
+```
+### Cüzdan Bakiye Sorgulama
+```
+babylond q bank balances $(babylond keys show cüzdan-adınız -a)
+```
+### Cüzdan Silme
+```
+babylond keys delete cüzdan-adınız
+```
 
+### Validator Oluşturma ( moniker ve cüzdan adınızı değiştiriniz)
+```
+babylond tx staking create-validator \
+--amount=1000000ubbn \
+--pubkey=$(babylond tendermint show-validator) \
+--moniker="moniker-yazınız" \
+--identity= \
+--details="Mustafa Kemal ATATÜRK" \
+--chain-id=bbn-test-2 \
+--commission-rate=0.10 \
+--commission-max-rate=0.20 \
+--commission-max-change-rate=0.01 \
+--min-self-delegation=1 \
+--from=cüzdan-adınız \
+--gas-prices=0.1ubbn \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y
+```
+### Validator Bilgileri Değiştirme Editleme
+```
+babylond tx staking edit-validator \
+--new-moniker="molla202" \
+--identity= \
+--details="Mustafa Kemal ATATÜRK" \
+--chain-id=bbn-test-2 \
+--commission-rate=0.1 \
+--from=cüzdan-adınız \
+--gas-prices=0.1ubbn \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y
+```
+### Jailden Kurtulma
+```
+babylond tx slashing unjail --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Validator Bilgileri
+```
+babylond q staking validator $(babylond keys show cüzdan-adınız --bech val -a) 
+```
+### Ödülleri Talep Etme
+```
+babylond tx distribution withdraw-all-rewards --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Komisyon ve Ödülleri Talep Etme
+```
+babylond tx distribution withdraw-rewards $(babylond keys show cüzdan-adınız --bech val -a) --commission --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Delege Etme Kendine
+```
+babylond tx staking delegate $(babylond keys show cüzdan-adınız --bech val -a) 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Delege Etme Başkasına
+```
+babylond tx staking delegate valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Redelegate (delege edilenden alıp baskasına delege etme)
+```
+babylond tx staking redelegate valoper-adresini-yazınız valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Delegeyi Geri Çekme
+```
+babylond tx staking unbond valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Başkasına Coin Gönderme
+```
+babylond tx bank send cüzdan-adresi 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+```
+### Oy Kullanma ( yes, no, no_with_veto yada abstain )
+```
+babylond tx gov vote 1 yes --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y 
+```
+## Node Silme
+```
+sudo systemctl stop babylond && sudo systemctl disable babylond && sudo rm /etc/systemd/system/babylond.service && sudo systemctl daemon-reload && rm -rf $HOME/.babylond && rm -rf $HOME/babylon && sudo rm -rf $(which babylond) 
+```
