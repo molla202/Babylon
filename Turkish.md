@@ -116,11 +116,11 @@ sudo journalctl -u babylond -f --no-hostname -o cat
 ```
 ### Cüzdan Oluşturma
 ```
-babylond keys add cüzdan-adınız
+babylond keys add $WALLET
 ```
 ### Cüzdan import
 ```
-babylond keys add cüzdan-adınız --recover
+babylond keys add $WALLET --recover
 ```
 ### Cüzdan listeleme
 ```
@@ -128,7 +128,7 @@ babylond keys list
 ```
 ### Cüzdan Bakiye Sorgulama
 ```
-babylond q bank balances $(babylond keys show cüzdan-adınız -a)
+babylond q bank balances $(babylond keys show $WALLET -a)
 ```
 ### Cüzdan Silme
 ```
@@ -136,7 +136,7 @@ babylond keys delete cüzdan-adınız
 ```
 ## ⚡⚡⚡ BLS key oluşturun ⚡⚡⚡
 ```
-babylond create-bls-key $(babylond keys show wallet -a)
+babylond create-bls-key $(babylond keys show $WALLET -a)
 ```
 ### Ardından restleyip validator işlemine geçebilirsiniz ( oluşturduğunuz cüzdan discordan faucet alınız)
 ```
@@ -159,7 +159,7 @@ babylond tx checkpointing create-validator \
 --commission-max-rate=0.20 \
 --commission-max-change-rate=0.01 \
 --min-self-delegation=1 \
---from=cüzdan-adınız \
+--from=$WALLET \
 --gas-prices=0.1ubbn \
 --gas-adjustment=1.5 \
 --gas=auto \
@@ -173,7 +173,7 @@ babylond tx checkpointing edit-validator \
 --details="Mustafa Kemal ATATÜRK" \
 --chain-id=bbn-test-2 \
 --commission-rate=0.1 \
---from=cüzdan-adınız \
+--from=$WALLET \
 --gas-prices=0.1ubbn \
 --gas-adjustment=1.5 \
 --gas=auto \
@@ -181,43 +181,43 @@ babylond tx checkpointing edit-validator \
 ```
 ### Jailden Kurtulma
 ```
-babylond tx slashing unjail --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx slashing unjail --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Validator Bilgileri
 ```
-babylond q epoching validator $(babylond keys show cüzdan-adınız --bech val -a) 
+babylond q epoching validator $(babylond keys show $WALLET --bech val -a) 
 ```
 ### Ödülleri Talep Etme
 ```
-babylond tx distribution withdraw-all-rewards --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx distribution withdraw-all-rewards --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Komisyon ve Ödülleri Talep Etme
 ```
-babylond tx distribution withdraw-rewards $(babylond keys show cüzdan-adınız --bech val -a) --commission --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx distribution withdraw-rewards $(babylond keys show $WALLET --bech val -a) --commission --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Delege Etme Kendine
 ```
-babylond tx epoching delegate $(babylond keys show cüzdan-adınız --bech val -a) 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching delegate $(babylond keys show $WALLET --bech val -a) 1000000ubbn --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Delege Etme Başkasına
 ```
-babylond tx epoching delegate valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching delegate valoper-adresini-yazınız 1000000ubbn --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Redelegate (delege edilenden alıp baskasına delege etme)
 ```
-babylond tx epoching redelegate valoper-adresini-yazınız valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching redelegate valoper-adresini-yazınız valoper-adresini-yazınız 1000000ubbn --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Delegeyi Geri Çekme
 ```
-babylond tx epoching unbond valoper-adresini-yazınız 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx epoching unbond valoper-adresini-yazınız 1000000ubbn --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Başkasına Coin Gönderme
 ```
-babylond tx bank send cüzdan-adresi 1000000ubbn --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
+babylond tx bank send cüzdan-adresi 1000000ubbn --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y
 ```
 ### Oy Kullanma ( yes, no, no_with_veto yada abstain )
 ```
-babylond tx gov vote 1 yes --from cüzdan-adınız --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y 
+babylond tx gov vote 1 yes --from $WALLET --chain-id bbn-test-2 --gas-prices 0.1ubbn --gas-adjustment 1.5 --gas auto -y 
 ```
 ## Node Silme
 ```
