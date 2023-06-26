@@ -38,7 +38,7 @@ source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
 
-### Moniker isminizi giriniz
+### Moniker isminizi giriniz (PORT 11 İSTERSENİZ DEĞİŞTİRİNİZ)
 
 ```
 #!/bin/bash
