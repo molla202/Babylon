@@ -42,8 +42,11 @@ source $HOME/.bash_profile
 
 ```
 
-NODE_MONIKER="moniker-name"
-BABYLON_PORT="311"
+echo "export WALLET="wallet-name"" >> $HOME/.bash_profile
+echo "export MONIKER="moniker-name"" >> $HOME/.bash_profile
+echo "export BABYLON_CHAIN_ID="bbn-test-2"" >> $HOME/.bash_profile
+echo "export BABYLON_PORT="311"" >> $HOME/.bash_profile
+source $HOME/.bash_profile
 
 cd || return
 rm -rf babylon
