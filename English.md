@@ -6,7 +6,7 @@
  * [Community Twitter](https://twitter.com/corenodeHQ)<br>
  * [Babylon Website](https://www.babylonchain.io/)<br>
  * [Blockchain Explorer](https://babylon.explorers.guru/)<br>
- * [Discord](https://discord.gg/babylonglobal)<br>
+ * [Discord](https://discord.gg/V7NGnHq3)<br>
  * [Twitter](https://twitter.com/babylon_chain)<br>
 
 
