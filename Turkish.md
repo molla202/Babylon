@@ -167,14 +167,13 @@ babylond tx checkpointing create-validator \
 ```
 ### Validator Bilgileri Değiştirme Editleme
 ```
-babylond tx checkpointing edit-validator \
+babylond tx staking edit-validator \
 --new-moniker="molla202" \
 --identity= \
 --details="Mustafa Kemal ATATÜRK" \
 --chain-id=bbn-test-2 \
---commission-rate=0.1 \
 --from=$WALLET \
---gas-prices=0.1ubbn \
+--gas-prices=0.2ubbn \
 --gas-adjustment=1.5 \
 --gas=auto \
 -y
