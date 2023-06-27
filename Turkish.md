@@ -146,6 +146,12 @@ sudo systemctl restart babylond
 ```
 babylond status 2>&1 | jq .SyncInfo
 ```
+
+### senkron kodu yadababylond hata verırse kodlar calısmıyorsa bunu giriniz
+```
+cp /root/go/bin/babylond /usr/local/bin
+systemctl restart babylond
+```
 ### Validator Oluşturma ( moniker ve cüzdan adınızı değiştiriniz)
 ```
 babylond tx checkpointing create-validator \
