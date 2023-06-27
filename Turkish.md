@@ -38,7 +38,7 @@ source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
 
-### Moniker isminizi giriniz (PORT 311 İSTERSENİZ DEĞİŞTİRİNİZ)
+### 🌱 Moniker isminizi giriniz (PORT 311 İSTERSENİZ DEĞİŞTİRİNİZ)
 
 ```
 echo "export WALLET="wallet-adınız"" >> $HOME/.bash_profile
@@ -147,7 +147,7 @@ sudo systemctl restart babylond
 babylond status 2>&1 | jq .SyncInfo
 ```
 
-### senkron kodu yadababylond hata verırse kodlar calısmıyorsa bunu giriniz
+### 🔭🔭🔭 senkron kodu yada babylond hata verırse kodlar calısmıyorsa bunu giriniz
 ```
 cp /root/go/bin/babylond /usr/local/bin
 systemctl restart babylond
