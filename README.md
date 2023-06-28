@@ -16,3 +16,8 @@
 | CPU |	4 |
 | RAM	| 8 GB |
 | Storage	| 250 GB SSD |
+
+## Script setup 
+```
+curl -sSL -o babylon-kurulum.sh https://raw.githubusercontent.com/molla202/Scripts/main/babylon.sh && chmod +x babylon-kurulum.sh && bash ./babylon-kurulum.sh
+```
