@@ -8,7 +8,7 @@ sudo systemctl stop babylond
 cp $HOME/.babylond/data/priv_validator_state.json $HOME/.babylond/priv_validator_state.json.backup 
 
 babylond tendermint unsafe-reset-all --home $HOME/.babylond --keep-addr-book 
-curl https://snapshots1-testnet.nodejumper.io/babylon-testnet/bbn-test-2_2023-06-26.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.babylond
+curl https://snapshots1-testnet.nodejumper.io/babylon-testnet/bbn-test-2_2023-06-29.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.babylond
 
 mv $HOME/.babylond/priv_validator_state.json.backup $HOME/.babylond/data/priv_validator_state.json 
 
