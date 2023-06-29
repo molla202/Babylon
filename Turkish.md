@@ -139,9 +139,15 @@ babylond q bank balances $(babylond keys show $WALLET -a)
 ```
 babylond keys delete cüzdan-adınız
 ```
-## ⚡⚡⚡ BLS key oluşturun ⚡⚡⚡
+## ⚡⚡⚡ BLS key oluşturun ⚡⚡⚡ $wallet ve wallet yazan kısımlara cüzdan adınızı yazınız
 ```
 babylond create-bls-key $(babylond keys show $WALLET -a)
+```
+```
+sed -i -e "s|^key-name *=.*|key-name = \"wallet\"|" $HOME/.babylond/config/app.toml
+```
+```
+sed -i -e "s|^timeout_commit *=.*|timeout_commit = \"10s\"|" $HOME/.babylond/config/config.toml
 ```
 ### Ardından restleyip validator işlemine geçebilirsiniz ( oluşturduğunuz cüzdan discordan faucet alınız)
 ```
