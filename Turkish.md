@@ -21,6 +21,7 @@
 ```
 curl -sSL -o babylon-kurulum.sh https://raw.githubusercontent.com/molla202/Scripts/main/babylon.sh && chmod +x babylon-kurulum.sh && bash ./babylon-kurulum.sh
 ```
+## NOT: kurulumu bitirdikten sonra eşleşilecek. eşleşme bitince cüzdan olusturulucak ardından bls key adımı yapılacak sonra faucetten coin alınıp validator kulucak,
 ### Update ve kütüphane kurulumu
 ```
 sudo apt update
