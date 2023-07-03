@@ -50,7 +50,7 @@ source $HOME/.bash_profile
 echo "export WALLET="wallet-adınız"" >> $HOME/.bash_profile
 echo "export MONIKER="moniker-adınız"" >> $HOME/.bash_profile
 echo "export BABYLON_CHAIN_ID="bbn-test-2"" >> $HOME/.bash_profile
-echo "export BABYLON_PORT="311"" >> $HOME/.bash_profile
+echo "export BABYLON_PORT="31"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 ```
