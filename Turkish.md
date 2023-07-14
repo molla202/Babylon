@@ -145,6 +145,9 @@ babylond keys delete cüzdan-adınız
 babylond create-bls-key $(babylond keys show $WALLET -a)
 ```
 ```
+sudo systemctl restart babylond
+```
+```
 sed -i -e "s|^key-name *=.*|key-name = \"wallet\"|" $HOME/.babylond/config/app.toml
 ```
 ```
