@@ -198,6 +198,7 @@ babylond tx staking edit-validator \
 --gas-prices=0.2ubbn \
 --gas-adjustment=1.5 \
 --gas=auto \
+--node http://localhost:31657 \
 -y
 ```
 ### Jailden Kurtulma
